@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import { Button, Icon, Input, Typography } from '@ohif/ui';
+import { Button, Icon, Input, Typography, Select } from '@ohif/ui';
 
 const sortIconMap = {
   '-1': 'sorting-active-down',
@@ -172,7 +172,14 @@ const StudyListFilter = ({
         </div>
         <div className="flex flex-row w-full">
           {filtersMeta.map(
-            ({ name, displayName, inputType, isSortable, gridCol }) => {
+            ({
+              name,
+              displayName,
+              inputType,
+              isSortable,
+              gridCol,
+              selectOptions,
+            }) => {
               return (
                 <div
                   className={classnames(`w-${gridCol}/24`, 'pl-4 first:pl-12')}
@@ -188,7 +195,7 @@ const StudyListFilter = ({
                     onLabelClick={() => handleFilterLabelClick(name)}
                     inputType={inputType}
                   >
-                    {inputType !== 'none' && (
+                    {inputType === 'text' && (
                       <Input
                         className="border-custom-blue mt-2 bg-black"
                         type="text"
@@ -196,6 +203,9 @@ const StudyListFilter = ({
                         value={currentFiltersValues[name] || ''}
                         onChange={event => handleFilterValueChange(event, name)}
                       />
+                    )}
+                    {inputType === 'select' && (
+                      <Select options={selectOptions}></Select>
                     )}
                   </FilterLabel>
                 </div>
