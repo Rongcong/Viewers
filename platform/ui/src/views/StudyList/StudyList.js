@@ -40,7 +40,12 @@ const filtersMeta = [
     name: 'modality',
     displayName: 'Modality',
     inputType: 'select',
-    selectOptions: [{ value: 'seg', label: 'seg' }],
+    selectOptions: [
+      { value: 'seg', label: 'seg' },
+      { value: 'ct', label: 'ct' },
+      { value: 'mr', label: 'mr' },
+      { value: 'sr', label: 'sr' },
+    ],
     isSortable: true,
     gridCol: 3,
   },

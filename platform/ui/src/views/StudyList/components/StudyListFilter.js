@@ -205,7 +205,7 @@ const StudyListFilter = ({
                       />
                     )}
                     {inputType === 'select' && (
-                      <Select options={selectOptions}></Select>
+                      <Select options={selectOptions} isMulti></Select>
                     )}
                   </FilterLabel>
                 </div>
